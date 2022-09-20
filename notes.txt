@@ -1,0 +1,40 @@
+Started with a repo created on github. 
+
+
+Poetry installed using:
+
+curl -sSL https://install.python-poetry.org | python3 -
+
+
+created .bash_profile with the following:
+
+grep -q $HOME/.local/bin <<< $PATH || \
+cat >> ~/.bash_profile <<EOF
+export PATH="$HOME/.local/bin:$PATH"
+EOF
+
+
+Discovered that you can't use the "new" feature that creates src/ & tests/ in an empty directory. 
+
+Used the following to work around:
+
+
+poetry new --name global-greeter --src deleteme && mv deleteme/* . && rm -rf deleteme
+
+
+
+Enabled completions:
+
+poetry completions bash >> ~/.bash_completion
+
+Doesn't work because of cleo (see:  https://github.com/python-poetry/cleo/issues/133)
+
+Fixed local version with the following:
+
+#(word word word) -> (word\ word\ word)
+sed -Ei 's/(\(\w+)(\ \w+)(\ \w+\))/\1\\\2\\\3/' ~/.bash_completion 
+
+#(word word) -> (word\ word)
+sed -Ei 's/(\(\w+)(\ \w+\))/\1\\\2/' ~/.bash_completion
+
+
