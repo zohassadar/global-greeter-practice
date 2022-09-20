@@ -21,6 +21,10 @@ Used the following to work around:
 
 poetry new --name global-greeter --src deleteme && mv deleteme/* . && rm -rf deleteme
 
+This overwrote my extremely useful readme.  
+This doesn't seem to be much of an advantage over poetry init for an existing folder, other than saving
+me from having to create __init__.py in a couple of folders.
+
 
 
 Enabled completions:
