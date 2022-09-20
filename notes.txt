@@ -42,3 +42,7 @@ sed -Ei 's/(\(\w+)(\ \w+)(\ \w+\))/\1\\\2\\\3/' ~/.bash_completion
 sed -Ei 's/(\(\w+)(\ \w+\))/\1\\\2/' ~/.bash_completion
 
 
+Better fix:
+
+#(word word) or (word word word) -> ("word word") or ("word word word")
+sed -Ei 's/\((\w+(\ \w+)?\ \w+)\)/("\1")/' ~/.bash_completion
