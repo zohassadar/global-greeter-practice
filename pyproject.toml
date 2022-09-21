@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "global-greeter"
-version = "0.1.0"
+version = "0.1.1a0"
 description = ""
 authors = ["Richard <zohassadar@gmail.com>"]
 readme = "README.md"
@@ -9,6 +9,10 @@ packages = [{include = "global_greeter", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 
+
+[tool.poetry.group.dev.dependencies]
+tomlkit = "^0.11.4"
+black = "^22.8.0"
 
 [build-system]
 requires = ["poetry-core"]
