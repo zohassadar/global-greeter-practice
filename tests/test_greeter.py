@@ -1,7 +1,7 @@
-import global_greeter.greet
+import greeter.greet
 
 
 def test_greet_main_output(capsys):
-    global_greeter.greet.main()
+    greeter.greet.main()
     captured = capsys.readouterr()
-    assert captured.out == "Hi Planet\n"
+    assert captured.out.endswith("\n")
