@@ -22,7 +22,7 @@ for filename, command in REQUIREMENTS.items():
         try:
             raw_output = subprocess.check_output(command.split())
             print("Done")
-            print(f"Writing requirements...", end="")
+            print("Writing requirements...", end="")
         except subprocess.CalledProcessError:
             print("Error")
             print(f"Unable to execute command: {command}")
@@ -31,7 +31,7 @@ for filename, command in REQUIREMENTS.items():
         print("Done")
 
 
-print(f"Opening pyproject.toml...", end="")
+print("Opening pyproject.toml...", end="")
 try:
     with open("pyproject.toml") as file:
         pyproject = tomlkit.load(open("pyproject.toml"))
@@ -62,7 +62,7 @@ except Exception as exc:
 
 print(f"Writing version to {module}.__init__...", end="")
 try:
-    typing.cast(str, loaded_module.__file__)
+    loaded_module.__file__ = typing.cast(str, loaded_module.__file__)
     open(loaded_module.__file__, "w+").write(f'__version__ = "{version}"\n')
     print("Done")
 except Exception as exc:
