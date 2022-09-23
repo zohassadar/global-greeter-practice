@@ -6,6 +6,7 @@ from __future__ import annotations
 import importlib
 import subprocess
 import sys
+import typing
 
 import tomlkit
 
@@ -61,6 +62,7 @@ except Exception as exc:
 
 print(f"Writing version to {module}.__init__...", end="")
 try:
+    typing.cast(str, loaded_module.__file__)
     open(loaded_module.__file__, "w+").write(f'__version__ = "{version}"\n')
     print("Done")
 except Exception as exc:

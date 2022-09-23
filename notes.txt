@@ -1,4 +1,4 @@
-Started with a repo created on github. 
+Started with a repo created on github.
 
 
 Poetry installed using:
@@ -14,14 +14,14 @@ export PATH="$HOME/.local/bin:$PATH"
 EOF
 
 
-Discovered that you can't use the "new" feature that creates src/ & tests/ in an empty directory. 
+Discovered that you can't use the "new" feature that creates src/ & tests/ in an empty directory.
 
 Used the following to work around:
 
 
 poetry new --name global-greeter --src deleteme && mv deleteme/* . && rm -rf deleteme
 
-This overwrote my extremely useful readme.  
+This overwrote my extremely useful readme.
 This doesn't seem to be much of an advantage over poetry init for an existing folder, other than saving
 me from having to create __init__.py in a couple of folders.
 
@@ -36,7 +36,7 @@ Doesn't work because of cleo (see:  https://github.com/python-poetry/cleo/issues
 Fixed local version with the following:
 
 #(word word word) -> (word\ word\ word)
-sed -Ei 's/(\(\w+)(\ \w+)(\ \w+\))/\1\\\2\\\3/' ~/.bash_completion 
+sed -Ei 's/(\(\w+)(\ \w+)(\ \w+\))/\1\\\2\\\3/' ~/.bash_completion
 
 #(word word) -> (word\ word)
 sed -Ei 's/(\(\w+)(\ \w+\))/\1\\\2/' ~/.bash_completion
