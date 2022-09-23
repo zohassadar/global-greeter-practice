@@ -1,14 +1,13 @@
 #!/usr/bin/env python
-
 # Run this crap to work around tox and poetry not getting along natively
-
 # This also adds __version__ to __init__
+from __future__ import annotations
 
-import tomlkit
 import importlib
+import subprocess
 import sys
 
-import subprocess
+import tomlkit
 
 ERROR = 1
 REQUIREMENTS = {
